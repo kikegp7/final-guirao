@@ -1,6 +1,6 @@
 <?php
 require_once("dompdf/dompdf_config.inc.php");
-$mysqli = new mysqli('localhost', 'root', '', 'final');
+$mysqli = new mysqli('localhost', 'root', 'kikegp9813', 'final');
 if ($mysqli->connect_errno) {
 	echo "Lo sentimos, este sitio web está experimentando problemas.";
     echo "Error: Fallo al conectarse a MySQL debido a: \n";
