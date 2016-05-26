@@ -1,5 +1,15 @@
 <?php
 require_once("dompdf/dompdf_config.inc.php");
+require 'vendor/autoload.php';
+
+//En la seccion de IAM screen un nuevo usario
+$AccessKeyID = 'AKIAIRJSLZBJZWBQOTDA';
+$SecretAccessKey = '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';
+
+//Importo mis clases
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\Exception\BucketAlreadyOwnedByYou;
 
 $mysqli = new mysqli('localhost', 'root', 'kikegp9813', 'final');
 if ($mysqli->connect_errno) {
@@ -12,12 +22,21 @@ if ($mysqli->connect_errno) {
 $id = $_GET['id'];
 $mysqli->query("SET CHARACTER_SET_RESULTS='utf8'");
 
+$clienteS3 = S3Client::factory(array(
+    'credentials' =>array(
+        'key'   =>$AccessKeyID,
+        'secret' =>$SecretAccessKey
+    ),
+    'version'   => 'latest',
+    'regio'     => 'us-west-2'
+));
+
 $codigoHTML='
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lista</title>
+<title>COTIZACION</title>
 </head>
 
 <body>
@@ -60,11 +79,23 @@ function randomNumber($length) {
     return $result;
 }
 
+$nombreArchivo = "Cotizacion_".randomNumber(8).".pdf";
+
 $codigoHTML=utf8_decode($codigoHTML);
 $dompdf=new DOMPDF();
 $dompdf->load_html($codigoHTML);
 ini_set("memory_limit","128M");
 $dompdf->render();
-$dompdf->stream("Cotizacion_".randomNumber(8).".pdf");
+$dompdf->stream($nombreArchivo);
+
+$result = $results->fetch_array(MYSQLI_ASSOC);
+
+$contenido = "Modelo:".$result['modelo']."\r"."Tipo:".$result['tipo']."\r"."Precio:".$result['precio']."\r"."Motor:".$result['motor']."\r"."Cilindrada:".$result['cilindrada']."\r"."Potencia:".$result['potencia'];
+
+$result = $clienteS3->putObject(array(
+    'Bucket'    => 'cotizacionesmayab',
+    'Key'       => $nombreArchivo,
+    'Body'      => $contenido
+    ));
 
 ?>
