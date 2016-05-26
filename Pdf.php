@@ -22,7 +22,7 @@ $codigoHTML='
 
 <body>
 <div align="center">
-    <table width="95%" border="1">
+    <table width="100%" border="1">
       <tr>
         <td bgcolor="#0099FF"><strong>Modelo</strong></td>
         <td bgcolor="#0099FF"><strong>Tipo</strong></td>
