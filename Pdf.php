@@ -27,7 +27,6 @@ $codigoHTML='
         <td bgcolor="#0099FF"><strong>Modelo</strong></td>
         <td bgcolor="#0099FF"><strong>Tipo</strong></td>
         <td bgcolor="#0099FF"><strong>Precio</strong></td>
-        <td bgcolor="#0099FF"><strong>Descripcion</strong></td>
         <td bgcolor="#0099FF"><strong>Motor</strong></td>
         <td bgcolor="#0099FF"><strong>Cilindrada</strong></td>
         <td bgcolor="#0099FF"><strong>Potencia</strong></td>
@@ -40,7 +39,6 @@ $codigoHTML.='
         <td>'.$dato['modelo'].'</td>
         <td>'.$dato['tipo'].'</td>
         <td>'.$dato['precio'].'</td>
-        <td>'.$dato['descripcion'].'</td>
         <td>'.$dato['motor'].'</td>
         <td>'.$dato['cilindrada'].'</td>
         <td>'.$dato['potencia'].'</td>
