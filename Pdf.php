@@ -1,17 +1,17 @@
 <?php
 require_once("dompdf/dompdf_config.inc.php");
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 
 //En la seccion de IAM screen un nuevo usario
-$AccessKeyID = 'AKIAIRJSLZBJZWBQOTDA';
-$SecretAccessKey = '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';
+// $AccessKeyID = 'AKIAIRJSLZBJZWBQOTDA';
+// $SecretAccessKey = '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';
 
-//Importo mis clases
-use Aws\S3\S3Client;
-use Aws\S3\Exception\S3Exception;
-use Aws\S3\Exception\BucketAlreadyOwnedByYou;
+// //Importo mis clases
+// use Aws\S3\S3Client;
+// use Aws\S3\Exception\S3Exception;
+// use Aws\S3\Exception\BucketAlreadyOwnedByYou;
 
-$mysqli = new mysqli('localhost', 'root', '', 'final');
+$mysqli = new mysqli('localhost', 'root', 'kikegp9813', 'final');
 if ($mysqli->connect_errno) {
 	echo "Lo sentimos, este sitio web está experimentando problemas.";
     echo "Error: Fallo al conectarse a MySQL debido a: \n";
@@ -22,14 +22,14 @@ if ($mysqli->connect_errno) {
 $id = $_GET['id'];
 $mysqli->query("SET CHARACTER_SET_RESULTS='utf8'");
 
-$clienteS3 = S3Client::factory(array(
-    'credentials' =>array(
-        'key'   =>$AccessKeyID,
-        'secret' =>$SecretAccessKey
-    ),
-    'version'   => 'latest',
-    'regio'     => 'us-west-2'
-));
+// $clienteS3 = S3Client::factory(array(
+//     'credentials' =>array(
+//         'key'   =>$AccessKeyID,
+//         'secret' =>$SecretAccessKey
+//     ),
+//     'version'   => 'latest',
+//     'regio'     => 'us-west-2'
+// ));
 
 $codigoHTML='
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -88,14 +88,14 @@ ini_set("memory_limit","128M");
 $dompdf->render();
 $dompdf->stream($nombreArchivo);
 
-$result = $results->fetch_array(MYSQLI_ASSOC);
+// $result = $results->fetch_array(MYSQLI_ASSOC);
 
-$contenido = "Modelo:".$result['modelo']."\r"."Tipo:".$result['tipo']."\r"."Precio:".$result['precio']."\r"."Motor:".$result['motor']."\r"."Cilindrada:".$result['cilindrada']."\r"."Potencia:".$result['potencia'];
+// $contenido = "Modelo:".$result['modelo']."\r"."Tipo:".$result['tipo']."\r"."Precio:".$result['precio']."\r"."Motor:".$result['motor']."\r"."Cilindrada:".$result['cilindrada']."\r"."Potencia:".$result['potencia'];
 
-$result = $clienteS3->putObject(array(
-    'Bucket'    => 'cotizacionesmayab',
-    'Key'       => $nombreArchivo,
-    'Body'      => $contenido
-    ));
+// $result = $clienteS3->putObject(array(
+//     'Bucket'    => 'cotizacionesmayab',
+//     'Key'       => $nombreArchivo,
+//     'Body'      => $contenido
+//     ));
 
 ?>
