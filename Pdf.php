@@ -88,7 +88,7 @@ $dompdf=new DOMPDF();
 $dompdf->load_html($codigoHTML);
 ini_set("memory_limit","128M");
 $dompdf->render();
-$dompdf->stream($nombreArchivo);
+$dompdf->stream("Cotizacion_".randomNumber(8).".pdf");
 
 $contenido = "Modelo:".$result['modelo']."\r"."Tipo:".$result['tipo']."\r"."Precio:".$result['precio']."\r"."Descripcion:".$result['descripcion']."\r"."Motor:".$result['motor']."\r"."Cilindrada:".$result['cilindrada']."\r"."Potencia:".$result['potencia'];
 
