@@ -219,9 +219,6 @@ $results = $mysqli->query('SELECT * FROM autos;');
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#Home">HOME</a></li>
         <li><a href="#models">MODELS</a></li>
-        <li><a href="#cotizacion">Cotizacion</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-
           </ul>
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
@@ -380,54 +377,6 @@ $results = $mysqli->query('SELECT * FROM autos;');
   </div>
 </div>
 
-<!-- Container (Contact Section) -->
-<div id="contact" class="container">
-  <h3 class="text-center">Contact</h3>
-  <p class="text-center"><em>We love our fans!</em></p>
-
-  <div class="row">
-    <div class="col-md-4">
-      <p>Fan? Drop a note.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
-      <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
-      <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
-    </div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-      <br>
-      <div class="row">
-        <div class="col-md-12 form-group">
-          <button class="btn pull-right" type="submit">Send</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <h3 class="text-center">From The Company</h3>  
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">J. Ramon</a></li>
-    <li><a data-toggle="tab" href="#menu1">Lucho Gamboa</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <h2>J. Ramon Cabrera, CEO</h2>
-      <p>Always looking for a new future.</p>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-      <h2>Luis Enrique Gamboa, Owner</h2>
-      <p>Innovation that excites.</p>
-    </div>
-  </div>
-</div>
 
 <div id="googleMap"></div>
 
