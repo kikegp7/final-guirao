@@ -148,7 +148,7 @@ $results = $mysqli->query('SELECT * FROM autos;');
       width: 100%;
       height: 400px;
       -webkit-filter: grayscale(100%);
-      filter: grayscale(100%);
+      filter: grayscale(20%);
   }  
   .navbar {
       font-family: Montserrat, sans-serif;
