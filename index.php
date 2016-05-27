@@ -147,7 +147,7 @@ $results = $mysqli->query('SELECT * FROM autos;');
   #googleMap {
       width: 100%;
       height: 400px;
-      -webkit-filter: grayscale(100%);
+      -webkit-filter: grayscale(20%);
       filter: grayscale(20%);
   }  
   .navbar {
