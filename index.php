@@ -212,7 +212,7 @@ $results = $mysqli->query('SELECT * FROM autos;');
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-     <img src="AudiLogo.png" alt="New York" width="75" height="50">
+     <img src="AudiLogo.jpg" alt="New York" width="75" height="50">
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
